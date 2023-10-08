@@ -18,6 +18,9 @@
   margin: 0;
   padding: 0;
   box-sizing: inherit;
+  background-color: #1C1C22;
+  color: white;
+  text-decoration: none;
 }
 
 html {
@@ -109,7 +112,7 @@ body {
 }
 
 p {
-  color: #666;
+  color: #fff;
 }
 
 /* This is BAD for accessibility! Don't do in the real world! */
@@ -130,7 +133,7 @@ img {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  height: 9rem;
+  height: 10rem;
   width: 100%;
   padding: 0 6rem;
   z-index: 100;
@@ -143,8 +146,9 @@ img {
 }
 
 .nav__logo {
-  height: 4.5rem;
-  transition: all 0.3s;
+  display:flex;
+  font-size: 6.5rem;
+  margin-right: 10rem;
 }
 
 .nav__links {
@@ -155,6 +159,7 @@ img {
 
 .nav__item {
   margin-left: 4rem;
+  
 }
 
 .nav__link:link,
@@ -206,12 +211,12 @@ img {
 }
 
 h1 {
-  font-size: 5.5rem;
+  font-size: 6.5rem;
   line-height: 1.35;
 }
 
 h4 {
-  font-size: 2.4rem;
+  font-size: 2.5rem;
   font-weight: 500;
 }
 
@@ -224,6 +229,8 @@ h4 {
 
 .highlight {
   position: relative;
+  background-image: var(--gradient-primary);
+  color:#1C1C22;
 }
 
 .highlight::after {
@@ -283,7 +290,7 @@ h4 {
 
 /* OPERATIONS */
 .operations {
-  max-width: 100rem;
+  max-width: 130rem;
   margin: 12rem auto 0 auto;
 
   background-color: #fff;
@@ -292,6 +299,7 @@ h4 {
 .operations__tab-container {
   display: flex;
   justify-content: center;
+
 }
 
 .operations__tab {
@@ -332,10 +340,17 @@ h4 {
   /* JUST PRESENTATIONAL */
   font-size: 1.7rem;
   padding: 2.5rem 7rem 6.5rem 7rem;
+
+  color: white;
+}
+
+.Edu_name{
+ font-size: 2.3rem;
+ color: chocolate;
 }
 
 .operations__content--active {
-  display: grid;
+  display: block;
   grid-template-columns: 7rem 1fr;
   column-gap: 3rem;
   row-gap: 0.5rem;
@@ -362,7 +377,7 @@ h4 {
 }
 
 .operations__content p {
-  grid-column: 2;
+  grid-column: 1;
 }
 
 .operations__icon--1 {
