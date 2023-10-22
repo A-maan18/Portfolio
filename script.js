@@ -18,30 +18,47 @@ document.addEventListener("DOMContentLoaded", function () {
     preLoader = document.getElementById('loader');
     loadNow(1);
 });
-// const btnScroolTo = document.querySelector(".btn--scroll-to");
-// const section1 = document.querySelector("#section--1");
-// // Modal window
-// const modal1 = document.querySelector(".modal");
-// const overlay1 = document.querySelector(".overlay");
-// const btnCloseModal = document.querySelector(".btn--close-modal");
-// const btnsOpenModal = document.querySelectorAll(".btn--show-modal");
-// const openModal = function () {
-//   modal1?.classList.remove("hidden");
-//   overlay1?.classList.remove("hidden");
-// };
-// const closeModal = function () {
-//   modal1?.classList.add("hidden");
-//   overlay1?.classList.add("hidden");
-// };
-// for (let i: number = 0; i < btnsOpenModal.length; i++)
-//   btnsOpenModal[i].addEventListener("click", openModal);
-// btnCloseModal?.addEventListener("click", closeModal);
-// overlay1?.addEventListener("click", closeModal);
-// document.addEventListener("keydown", function (e) {
-//   if (e.key === "Escape" && !modal1?.classList.contains("hidden")) {
-//     closeModal();
-//   }
-// });
+
+//---------INTERSECTION OBSERVER API TO EVERY SECTION -------------------- 
+const all_section=document.querySelectorAll('.section');
+
+const reveal_section=function(entries,observer){
+    const [entry]=entries;
+    
+    if(entry.isIntersecting){
+        entry.target.classList.remove("section_hidden");
+
+    observer.unobserve(entry.target);
+    }
+};
+
+const obsOptions={
+    root: null ,
+    threshold:0.8,
+};
+
+const observer=new IntersectionObserver(reveal_section,obsOptions);
+
+all_section.forEach(section=>{
+    section.classList.add("section_hidden");
+    observer.observe(section);
+    
+})
+
+
+
+//------------------- HEADER -----------------------
+const header=document.querySelector(".header");
+
+//------------------ SUMMARY ---------------------
+const summary_div=document.querySelector(".summary");
+
+   
+
+// Intersection observer API for summary
+
+
+
 // btnScroolTo?.addEventListener("click", function (e) {
 //   const s1coords = section1?.getBoundingClientRect();
 //   section1?.scrollIntoView({ behavior: "smooth" });
@@ -54,20 +71,7 @@ document.addEventListener("DOMContentLoaded", function () {
 //     document.querySelector(id).scrollIntoView({ behavior: "smooth" });
 //   }
 // });
-///////  Education tab ///////////////////////
-const tabs = document.querySelectorAll(".operations__tab");
-const tabsContainer = document.querySelector(".operations__tab-container");
-const tabsContent = document.querySelectorAll(".operations__content");
-tabsContainer?.addEventListener("click", function (e) {
-  const clicked = e.target?.closest(".operations__tab");
-  if (!clicked) return;
-  tabs.forEach((t) => t.classList.remove("operations__tab--active"));
-  tabsContent.forEach((c) => c.classList.remove("operations__content--active"));
-  clicked.classList.add("operations__tab--active");
-  document
-    .querySelector(`.operations__content--${clicked.dataset.tab}`)
-    ?.classList.add("operations__content--active");
-});
+
 // // Intersction Observer API
 // const nav = document.querySelector(".nav");
 // const header = document.querySelector(".header");
@@ -100,6 +104,7 @@ tabsContainer?.addEventListener("click", function (e) {
 //   sectionObserver.observe(section);
 //   section.classList.add("section--hidden");
 // });
+
 // // Lazy Loading Images..............
 // const imgTargets = document.querySelectorAll("img[data-src]");
 // const loading = function (entries, observer) {
@@ -115,7 +120,16 @@ tabsContainer?.addEventListener("click", function (e) {
 //   threshold: 0,
 // });
 // imgTargets.forEach((ele) => imgObserver.observe(ele));
-// //--------------- slider --------------------
+
+//---------------------------------------
+
+
+
+
+
+//--------------------------------------- slider -----------------------------------------
+
+
 // const slides = document.querySelectorAll(".slide");
 // const btnLeft = document.querySelector(".slider__btn--left");
 // const btnRight = document.querySelector(".slider__btn--right");

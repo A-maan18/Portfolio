@@ -162,12 +162,18 @@ img {
 }
 
 /* HEADER */
+@keyframes zoom-out {
+  from{transform: scale(1.2);}
+  to{tranform : scale(1);}
+}
 .header {
   padding: 13rem 3rem;
   height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
+  animation-name: zoom-out;
+  animation-duration: 0.5s;
 }
 
 .header__title {
@@ -232,6 +238,7 @@ h4 {
 .summary{
   display: flex;
   padding: 10rem;
+  padding-top: 6rem;
 
   margin-bottom: 10rem;
 }
@@ -239,7 +246,7 @@ h4 {
 .left_side{
   display: flex;
   flex-direction: column;
-  width: 50%;
+  width: 40%;
   justify-content: center;
   align-items: center;
 
@@ -258,10 +265,10 @@ h4 {
   font-size: 7rem;
 }
 .right_side{
-  width: 50%;
+  width: 80%;
 }
 .summary_info{
-  font-size:1.3rem;
+  font-size:1.4rem;
 }
 
 /* SKILLS */
@@ -419,4 +426,12 @@ h4 {
 .hidden {
   visibility: hidden;
   opacity: 0;
+}
+.section{
+  transition: transform 1s, opacity 1s;
+}
+
+.section_hidden{
+  opacity:0;
+  transform: translateY(8rem);
 }
