@@ -34,7 +34,7 @@ const reveal_section=function(entries,observer){
 
 const obsOptions={
     root: null ,
-    threshold:0.8,
+    threshold:0.5,
 };
 
 const observer=new IntersectionObserver(reveal_section,obsOptions);
